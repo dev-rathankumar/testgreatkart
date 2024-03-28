@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section-conten padding-y bg">
+    {% include 'includes/alerts.html' %}
+    <div class="container">
+        <div class="row">
+        {% include 'includes/dashboard_sidebar.html' %}
+        <main class="col-md-9">
+            <article class="card">
+            <header class="card-header">
+                <strong class="d-inline-block mr-3">Logged in as:</strong>
+                <span> 
+                    <i>
+                        {{ user.first_name }}
+                    </i>
+                </span>
+            </header>
+
+            <div class="card-body">
+                <div class="container d-flex" style="align-items:stretch;"> 
+                    <div class="col-md-6">
+                        <div class="card" style="text-align:center;">
+                            <div class="card-body">
+                                <div class ="card-title p-2">
+                                    <h5>My Orders</h5>
+                                </div>
+                                <hr>
+                                <br>
+                                <h4>{{ orders_count }} </h4>
+                                <a href="{% url 'my_orders' %}">View Orders</a>
+                                
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="text-align:center;">
+                            <div class="card-body">
+                                    <img src="{{ user.userprofile.profile_picture.url }}" alt="User Profile Photo" width="50" height="50" style="border-radius: 50%">
+                               <hr>
+                               <br>
+                               <strong>                                <p class="mb-0">{{ user.email }}</p>
+                               </strong>
+                                <p>{{ user.phone_number }}</p>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div> <!-- row.// -->
+            </div> <!-- card-body .// -->
+            </article> <!-- order-group.// --> 
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+    
+
+
+{% endblock %}
